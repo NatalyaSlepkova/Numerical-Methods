@@ -5,8 +5,8 @@ from MyException import InputException
 def Gauss_sol(A, b):
     if len(A) != len(A[0]) or len(A) != len(b):
         raise InputException('Incorrect dimension')
-    M = A[:]
-    c = b[:]
+    M = A.copy()
+    c = b.copy()
     n = len(M)
     indices = np.zeros(n)
     for i in range(n):
@@ -48,4 +48,6 @@ if __name__ == "__main__":
         print(IE.message, file=fOut)
     else:
         print(x, file=fOut)
+    x = np.linalg.solve(A, y)
+    print(x, file=fOut)
     fOut.close()
