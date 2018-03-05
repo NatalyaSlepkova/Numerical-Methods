@@ -25,12 +25,7 @@ def Gauss_sol(A, B):
             indices[i] = k
     for i in range(n):
         C[i] *= np.sign(M[i][i])
-    X = C
-    if len(B.shape) == 1:
-        X = np.zeros(n)
-        for i in range(n):
-            X[i] = C[int(indices[i])]
-    return X
+    return C
 
 
 def inverse(A):
